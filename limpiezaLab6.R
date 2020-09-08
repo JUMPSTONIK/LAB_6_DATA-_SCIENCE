@@ -70,9 +70,9 @@ data$Tweet = Tweets
 
 #examinando duplicados
 distinct(data)
-duplicated(data)
-nrow(data[duplicated(data), ])
-data <- distinct(data)
+duplicated(data$Tweet)
+nrow(data[duplicated(data$Tweet), ])
+data <- data[!duplicated(data$Tweet),]
 
 options(PACKAGE_MAINFOLDER="C:/Users/...")
 options(java.parameters = "-Xmx8000m")
