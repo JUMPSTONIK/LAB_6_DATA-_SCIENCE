@@ -10,29 +10,29 @@ library('tm')
 
 #obtener data del csv
 data <- read.csv("data.csv", sep=";", encoding = "utf-8")
-View(data)
-head(data)
-str(data)
+#View(data)
+#head(data)
+#str(data)
 
 Tweets = data$Tweet
 #Tweets
 Tweets <- iconv(Tweets, to="ASCII//TRANSLIT")
 
 #hacemos los cambios de las tildes por el incov
-Tweets <- gsub("A!","a", prue,fixed = TRUE)
-Tweets <- gsub("AC","e", prueva,fixed = TRUE)
-Tweets <- gsub("A-","i", prueva,fixed = TRUE)
-Tweets <- gsub("A3","o", prueva,fixed = TRUE)
-Tweets <- gsub("As","u", prueva,fixed = TRUE)
-Tweets <- gsub("A?","¿", prueva ,fixed = TRUE)
-Tweets <- gsub("?A","?", prueva ,fixed = TRUE)
-Tweets <- gsub("a?|"," ", prueva,fixed = TRUE)
-Tweets <- gsub("\n"," ", prueva,fixed = TRUE)
-Tweets <- gsub("?Y","", prueva,fixed = TRUE)
-Tweets <- gsub("'C","", prueva,fixed = TRUE)
-Tweets <- gsub("'Z","", prueva,fixed = TRUE)
-Tweets <- gsub("Ys","", prueva,fixed = TRUE)
-#Tweets
+Tweets <- gsub("A!","a", Tweets,fixed = TRUE)
+Tweets <- gsub("AC","e", Tweets,fixed = TRUE)
+Tweets <- gsub("A-","i", Tweets,fixed = TRUE)
+Tweets <- gsub("A3","o", Tweets,fixed = TRUE)
+Tweets <- gsub("As","u", Tweets,fixed = TRUE)
+Tweets <- gsub("A?","¿", Tweets ,fixed = TRUE)
+Tweets <- gsub("?A","?", Tweets ,fixed = TRUE)
+Tweets <- gsub("a?|"," ",Tweets,fixed = TRUE)
+Tweets <- gsub("\n"," ", Tweets,fixed = TRUE)
+Tweets <- gsub("?Y","", Tweets,fixed = TRUE)
+Tweets <- gsub("'C","", Tweets,fixed = TRUE)
+Tweets <- gsub("'Z","", Tweets,fixed = TRUE)
+Tweets <- gsub("Ys","", Tweets,fixed = TRUE)
+Tweets[1223]
 
 #volver todo a minuscula
 Tweets <- sapply(Tweets, tolower)
@@ -74,8 +74,8 @@ duplicated(data$Tweet)
 nrow(data[duplicated(data$Tweet), ])
 data <- data[!duplicated(data$Tweet),]
 
-options(PACKAGE_MAINFOLDER="C:/Users/...")
-options(java.parameters = "-Xmx8000m")
+#options(PACKAGE_MAINFOLDER="C:/Users/...")
+#options(java.parameters = "-Xmx8000m")
 
 #Guardar el csv
 write.csv(x=data, file= "C:/Users/JUMPSTONIK/DataClean.csv")
